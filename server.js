@@ -19,6 +19,10 @@ app.get("/api/notes", (req, res) => {
   res.json(notes);
 });
 
+app.post("/api/notes", (req, res) => {
+  res.status(201).json({ message: "Note created" });
+});
+
 const port = process.env.PORT || 8080;
 
 app.listen(port, () => {

@@ -8,6 +8,10 @@
     <ul id="notes">
       <li>loading...</li>
     </ul>
+    <form id="note-form">
+      <input type="text" name="note" placeholder="Enter a note" />
+      <button type="submit">Add Note</button>
+    </form>
     <script>
       fetch("/api/notes")
         .then((res) => res.json())
