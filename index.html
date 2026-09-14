@@ -1,8 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+  <head>
+    <title>My Notes App</title>
+  </head>
   <body>
-    <h1>Tom McCarthy</h1>
-    <p>One thing I want to build before I graduate: No idea</p>
-    <p>One website I would hate to see go down: fortniteTracker</p>
+    <h1>My notes</h1>
+    <ul id="notes">
+      <li>loading...</li>
+    </ul>
+    <script>
+      fetch("/api/notes")
+        .then((res) => res.json())
+        .then((notes) => {
+          const list = document.getElementById("notes");
+          list.innerHTML = "";
+          notes.forEach((note) => {
+            const item = document.createElement("li");
+            item.textContent = note.text;
+            list.appendChild(item);
+          });
+        });
+    </script>
   </body>
 </html>
